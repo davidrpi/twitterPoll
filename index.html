@@ -1,0 +1,835 @@
+
+<link href="css/style.css" rel="stylesheet" type="text/css"/>
+<link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+<link href="css/skeleton.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" href="libraries/font-awesome-4.4.0/css/font-awesome.min.css" type="text/css" media="screen" charset="utf-8"/>
+<link rel="stylesheet" href="libraries/bower_components/chartist/dist/chartist.min.css" type="text/css" media="screen" charset="utf-8"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="libraries/bower_components/chartist/dist/chartist.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    $('html, body').animate({
+      scrollTop: $(hash).offset().top
+    }, 800, function(){
+
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+});
+</script>
+
+
+<!--HEADER-->
+<header id="tothetop">
+  <div class="container">
+    <div class="row bottom">
+      <div class="twelve columns">
+        <div class="logo">
+          <style>
+          .logo {
+            height: 65%;
+            /*background-size: 0.5em 100%;*/
+            font: 18em/1 Arial;
+          }
+          .text--line {
+            font-size: 0.40em; }
+
+          svg {
+            position: center;
+            width: 100%;
+            height: 100%; }
+
+          .text-copy {
+            fill: none;
+            stroke: white;
+            stroke-dasharray: 7% 28%;
+            stroke-width: 3px;
+            animation: stroke-offset 9s infinite linear; }
+            .text-copy:nth-child(1) {
+              stroke: #db3236;
+              stroke-dashoffset: 7%; }
+            .text-copy:nth-child(2) {
+              stroke: #FFF;
+              stroke-dashoffset: 14%; }
+            .text-copy:nth-child(3) {
+              stroke: #0000e5;
+              stroke-dashoffset: 21%; }
+            .text-copy:nth-child(4) {
+              stroke: #FFF;
+              stroke-dashoffset: 28%; }
+            .text-copy:nth-child(5) {
+              stroke: #4885ed;
+              stroke-dashoffset: 35%; }
+
+          @keyframes stroke-offset {
+            50% {
+              stroke-dashoffset: 35%;
+              stroke-dasharray: 0 85.7%; } }
+          </style>
+          <svg viewBox="20 40 800 600">
+            <symbol id="s-text">
+              <text text-anchor="middle"
+                    x="50%"
+                    y="35%"
+                    class="text--line"
+                    >
+                twitter
+              </text>
+              <text text-anchor="middle"
+                    x="50%"
+                    y="68%"
+                    class="text--line2"
+                    >
+                Poll
+              </text>
+            </symbol>
+            <g class="g-ants">
+              <use xlink:href="#s-text"
+                class="text-copy"></use>
+              <use xlink:href="#s-text"
+                class="text-copy"></use>
+              <use xlink:href="#s-text"
+                class="text-copy"></use>
+              <use xlink:href="#s-text"
+                class="text-copy"></use>
+              <use xlink:href="#s-text"
+                class="text-copy"></use>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="twelve columns">
+        <a href="#about" class="btn">Explore</a>
+      </div>
+    </div>
+  </div><!--end of .container-->
+</header>
+
+<!--ABOUT-->
+<section class="about" id="exp">
+  <div class="container">
+    <div class="row" id="about">
+      <div class="twelve columns">
+        <h3>Overview</h3>
+      </div>
+    </div><!--end of .row-->
+    <div class="row bottom">
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="dnc_votes"></div>
+        <div>
+          <p style="text-align:center;"><strong>DNC Total Vote Breakdown</strong>
+            <br>Total Votes: 14,800,087
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Clinton: 58.6% (8,668,136)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sanders: 41.4% (6,131,951)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#dnc_votes', {
+            labels: ['Clinton', 'Sanders'],
+            series: [8668136, 6131951]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 180,
+            total: 29600174,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="totalVotes"></div>
+        <div>
+          <p style="text-align:center;"><strong>Total Votes Recorded 2016 Primaries</strong>
+            <br>Total Votes: 35,176,012
+            <br><br><br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;DNC: 42.4% (14,800,087)
+            <br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;RNC: 57.5% (20,375,925)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#totalVotes', {
+            series: [20375925, 14800087]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 360,
+            total: 35176012,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="gop_votes"></div>
+        <div>
+          <p style="text-align:center;"><strong>GOP Total Vote Breakdown</strong>
+            <br>Total Votes: 15,758,250
+            <br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Trump: 47.9% (7,548,429)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cruz: 34.8% (5,484,494)
+            <br><i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Kasich: 17.3% (2,725,327)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#gop_votes', {
+            labels: [ 'Trump', 'Cruz', 'Kasich'],
+            series: [7548429, 5484494, 2725327]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 360,
+            total: 31516500,
+            showLabel: false
+          });
+        </script>
+      </div>
+    </div><!--end of .row-->
+    <div class="row bottom">
+      <div class="twelve columns" id="summary">
+        <h4 style="color:#082330;">Why now?</h4>
+        <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Politics and the media have always maintained a symbiotic relationship dependent on each other's resources
+          when necessary. It's obvious social media has been playing a larger role compared to prior election cycles with
+          newly polished user-tested logos, sponsored debates, live public reactions, and flocks of 140-character statements.
+          Rumors regarding content suppression after an ex-Facebook employee claims that the company knowingly
+          hides and reveals headlines on its newsfeed service tailored specifically to a user's preferences, has left many
+          wondering whether we should trust large "media" tech giants (Facebook, Google, Twitter, etc.) with our news.
+          But even if companies are filtering our content, we're still collecting information and that's what's important, right? Not quite,
+          recent findings from Dartmouth College suggest the transition from print to screen (phones, tablets, computers)
+          has actually "shortened [users'] attention spans and left little time for contemplative thought." If users' are now less
+          comprehensive and are more inclined to just read a headline, blurb, or tweet, what are users' grasping then when reading? Sentiment? Validity? Popularity?
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Twitter's 140-character "tweet-centric" environment gives candidates and their teams an
+          effective channel to reach a growing base of followers at the click of a button (Donald Trump: 7.49 million, Hillary Clinton: 5.89 million,
+          Bernie Sanders: 1.82 million [recorded April 07]). Candidates now tweet to state/clarify their views on topics being reported by the press (reagardless of validity)
+          and even berade other public officials with insults (such as "Lyin' Ted", "Crooked Hillary", and "Little Marco"). Jeremy Sherman, an eptimologist recently interviewed by the
+          Washington Post, was quoted: "He's able to do it with intransigent certainty, the content is secondary. He's a master at this stuff it's a permanent quality he sticks to you.
+          And it's a tar baby it sticks to you the more you fight it." Another study from NYU titled "The Grammar of Politics" found that "conservative politicians more often
+          use nouns in making their points because that part of speech can 'satisfy psychological needs for order, stability and predictability.'" With the rise of these new technologies and the recent presumption of the GOP nominee, Donald Trump, many
+          wonder if there are correlations between public online opinion and the "purest" form of public expression of opinion, voting at the ballot box.
+          The last time a candidate with no political experience was nominated was in 1952 when the Republican Party selected Former U.S. Army General Dwight D. Eisenhower.
+          To put times in perspective, Eisenhower had to win World War II for the general public to consider an outsider for the candidacy. In 2016, Donald Trump won Twitter.
+        </p>
+      </div>
+    </div><!--end of .row-->
+    <div class="row bottom">
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="tot_weight"></div>
+        <div>
+          <p style="text-align:center;"><strong>Weighted Vote Results </strong>
+            <br>Total: 2,741 Votes
+            <br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sanders: 29.6% (812)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Clinton: 18.5% (508)
+            <br><i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Trump: 30.5% (835)
+            <br><i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cruz: 15.6% (428)
+            <br><i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Kasich: 5.8% (158)
+          </p>
+        </div>
+        <script>
+        new Chartist.Pie('#tot_weight', {
+          series: [812,508, 835, 428, 158]
+        }, {
+          donut: true,
+          donutWidth: 60,
+          startAngle: 360,
+          total: 2741,
+          showLabel: false
+        });
+        </script>
+      </div>
+      <div class ="two-thirds column" id="mission">
+        <h4 style="color:#082330;">Project Mission</h4>
+        <p>
+          Fueled by the general public's acceptance and false sense of security of social media. The misconception that social
+          platforms were made for users by users when in reality these tech companies, like any other business in America, serve the interests of their stakeholders.
+        </p>
+        <h4 style="color:#082330;">Proposed Process</h4>
+        <div class="row bottom" id="process">
+          <div class="one-third column center">
+            <h5 style="margin-top:20px;"><i style="font-size:3em; color:#00aced;" class="fa fa-twitter" aria-hidden="true"></i> <br><p style="font-size:0.75em;">Pull Politically <br>Relevant Tweets</p></h5>
+          </div>
+          <div class="one-third column center">
+            <h5 style="margin-top:20px;"><i style="font-size:3em; color:#cb2027;" class="fa fa-cog" aria-hidden="true"></i> <br><p style="font-size:0.75em;">Apply NLP Sentiment Analysis</p></h5>
+          </div>
+          <div class="one-third column center">
+            <h5 style="margin-top:20px;"><i style="font-size:3em; color:#7B0099;" class="fa fa-puzzle-piece" aria-hidden="true"></i> <br><p style="font-size:0.75em;">Determine Voting Preferences</p></h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="twelve columns" id="summary">
+        <h4 style="color:#082330;">Project Goal</h4>
+        <p>
+          Aim to successfully replicate real 2016 primary results with simulated primary elections based off a collection of Twitter data and sentiment analysis
+          for each politically-relevant tweet in order to determine each user's voting preference.
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        <a href="#results" class="btn block"><strong>CONTINUE</strong></a>
+      </div>
+    </div><!--end of .row-->
+  </div><!--end of .container-->
+</section>
+
+<header>
+  <section class="services" id="results" >
+    <div class="container">
+      <div class="row">
+        <div class="twelve columns">
+          <h3>Architecture</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="one-third column" >
+          <a href="http://aws.amazon.com/">
+            <img src="images/aws.png" height="120" width="200"/>
+          </a>
+        </div>
+        <div class="one-third column">
+          <a href="https://www.meaningcloud.com/products/sentiment-analysis">
+            <img src="images/meaningcloud.png" height="120" width="180"/>
+          </a>
+        </div>
+        <div class="one-third column">
+          <a href="http://www.postgresql.org/">
+            <img src="images/postgres.jpg" height="120" width="120"/>
+          </a>
+        </div>
+      </div><!--end of .row-->
+      <div class="row">
+        <div class="one-third column">
+          <a href="http://www.python.org/">
+            <img src="images/python.png" height="120" width="120"/>
+          </a>
+        </div>
+        <div class="one-third column">
+          <a href="https://github.com/davidrpi/twitterPoll">
+            <img src="images/git.png" height="120" width="120"/>
+          </a>
+        </div>
+        <div class="one-third column">
+          <a href="https://dev.twitter.com/rest/public">
+            <img src="images/twitter.png" height="120" width="120"/>
+          </a>
+        </div>
+      </div><!--end of .row-->
+    </section>
+</header>
+
+<section class="about" id="data">
+  <div class="container">
+    <div class="row" id="about">
+      <div class="twelve columns">
+        <style>
+        #data h3:after{
+          border-color: #082330;
+        }
+        </style>
+        <h3>Process</h3>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="twelve columns" id="summary">
+          <h4 class="center" style="color:#082330;">
+            Total Tweets
+          </h4>
+          <p class="center">
+            <i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp;Query Tweets for Each Candidate
+            <br><i class="fa fa-table" aria-hidden="true"></i> &nbsp;Store Tweet's ID, Text, User, Location &amp; Associated Candidate
+          </p>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="dnc_tweets"></div>
+        <div>
+          <p style="text-align:center;"><strong>DNC Total Tweets</strong>
+            <br><i style="font-size: 1em; color:#00aced;" class="fa fa-twitter" aria-hidden="true"></i> 1,582
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Clinton: 36.8% (582)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sanders: 63.2% (1000)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#dnc_tweets', {
+            labels: ['Clinton', 'Sanders'],
+            series: [582, 1000]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 180,
+            total: 3164,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="total_tweets"></div>
+        <div>
+          <p style="text-align:center;"><strong>Total Tweets</strong>
+            <br><i style="font-size: 1em; color:#00aced;" class="fa fa-twitter" aria-hidden="true"></i> 3,282
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;DNC: 48.6% (1582)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;RNC: 51.4% (1700)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#total_tweets', {
+            series: [1700, 1605]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 360,
+            total: 3305,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="gop_tweets"></div>
+        <div>
+          <p style="text-align:center;"><strong>GOP Total Tweets</strong>
+            <br><i style="font-size: 1em; color:#00aced;" class="fa fa-twitter" aria-hidden="true"></i> 1,700
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Trump: 56.8% (966)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cruz: 31.3% (532)
+            <br><i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Kasich: 11.9% (202)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#gop_tweets', {
+            labels: [ 'Trump', 'Cruz', 'Kasich'],
+            series: [966, 532, 202]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 360,
+            total: 3400,
+            showLabel: false
+          });
+        </script>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="twelve columns" id="summary">
+          <h4 class="center" style="color:#082330;">
+            NLP Results
+          </h4>
+          <p class="center">
+            <i class="fa fa-question-circle" aria-hidden="true"></i> &nbsp;Query NLP API to Analyze Every Tweet for Sentiment
+            <br><i class="fa fa-table" aria-hidden="true"></i> &nbsp;Store Result's Score, Agreement, Subjectivity &amp; API's Confidence
+          </p>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="one-third column">
+        <h5>Calculated Values</h5>
+        <p style="text-align:left;">
+          <strong>Score:</strong> P+, P, NEU, N, N+, NONE
+          <br>Polarity of the entire text
+        </p>
+        <p style="text-align:left;">
+          <strong>Agreement:</strong> Agree or Disagree
+          <br>Marks the agreement between sentiments in text
+        </p>
+        <p style="text-align:left;">
+          <strong>Confidence:</strong> 0 to 100
+          <br>Confidence in the overall sentiment analysis performed
+        </p>
+        <h5>Breakdown</h5>
+        <p style="text-align:left;">
+          <strong>Kasich</strong>
+          <br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;13
+          &nbsp;<i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;78
+          &nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;1
+          &nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;29
+          &nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;29
+          &nbsp;<i style="font-size: 1em; color:#59922b;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;72
+        </p>
+        <p style="text-align:left;">
+          <strong>Cruz</strong>
+          <br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;21
+          &nbsp;<i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;143
+          &nbsp;<i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;20
+          &nbsp;<i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;89
+          &nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;29
+          &nbsp;<i style="font-size: 1em; color:#59922b;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;230
+        </p>
+        <p style="text-align:left;">
+          <strong>Trump</strong>
+          <br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;34
+          &nbsp;<i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;229
+          &nbsp;<i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;34
+          &nbsp;<i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;203
+          &nbsp;<i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;44
+          &nbsp;<i style="font-size: 1em; color:#59922b;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;442
+        </p>
+        <p style="text-align:left;">
+          <strong>Clinton</strong>
+          <br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;25
+          &nbsp;<i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;130
+          &nbsp;<i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;17
+          &nbsp;<i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;157
+          &nbsp;<i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;26
+          &nbsp;<i style="font-size: 1em; color:#59922b;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;227
+        </p>
+        <p style="text-align:left;">
+          <strong>Sanders</strong>
+          <br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;96
+          &nbsp;<i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;197
+          &nbsp;<i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;38
+          &nbsp;<i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;144
+          &nbsp;<i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;76
+          &nbsp;<i style="font-size: 1em; color:#59922b;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;499
+        </p>
+      </div>
+      <div class="two-thirds column">
+        <div class="ct-chart ct-minor-third" id="nlp_total"></div>
+          <div>
+            <p style="text-align:center;"><strong>NLP Breakdown </strong>
+              <br>Total: 3,305
+              <br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;P+
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;P
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;NEU
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#d17905;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;N
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#453d3f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;N+
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i style="font-size: 1em; color:#59922b;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;None
+            </p>
+          </div>
+        <script>
+        new Chartist.Bar('#nlp_total', {
+          labels: ['Kasich', 'Cruz','Trump','Clinton','Sanders'],
+          series: [
+            [72,  230,  422,  227,  499],
+            [29,  29,   44,   26,   76],
+            [29,  89,   203,  157,  144],
+            [1,   20,   34,   17,   38],
+            [78,  143,  229,  130,  197],
+            [13,  21,   34,   25,   96]
+          ]
+        }, {
+          // Default mobile configuration
+          stackBars: true,
+          axisX: {
+            labelInterpolationFnc: function(value) {
+              return value.split(/\s+/).map(function(word) {
+                return word[0];
+              }).join('');
+            }
+          },
+          axisY: {
+            offset: 20
+          }
+        }, [
+          // Options override for media > 400px
+          ['screen and (min-width: 400px)', {
+            reverseData: true,
+            horizontalBars: true,
+            axisX: {
+              labelInterpolationFnc: Chartist.noop
+            },
+            axisY: {
+              offset: 60
+            }
+          }],
+          // Options override for media > 800px
+          ['screen and (min-width: 800px)', {
+            //stackBars: false,
+            seriesBarDistance: 10
+          }],
+          // Options override for media > 1000px
+          ['screen and (min-width: 1000px)', {
+            //reverseData: false,
+            //horizontalBars: false,
+            //stackBars: false,
+            //seriesBarDistance: 15
+          }]
+        ]);
+        </script>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+          <h4 class="center" style="color:#082330;">
+            Primary Results
+          </h4>
+          <p class="center">
+            <i class="fa fa-puzzle-piece" aria-hidden="true"></i> &nbsp;Determine Users' Candidate Preferences for Simulated Primaries
+            <br><i class="fa fa-puzzle-piece" aria-hidden="true"></i> &nbsp;Determine Users' Candidate Preferences for Weighted Simulated Primaries
+            <br><i class="fa fa-table" aria-hidden="true"></i> &nbsp;Store User's ID &amp; Preferred Candidate for Both Calculcated Preferences
+          </p>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="wv_dnc"></div>
+        <div>
+          <p style="text-align:center;"><strong>DNC WV Primary</strong>
+            <br>Total Votes: 210,214
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sanders: 58.9% (123,860)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Hillary: 41.1% (86,354)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#wv_dnc', {
+            series: [86354, 123860]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 270,
+            total: 210214,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="dnc_calc_votes"></div>
+        <div>
+          <p style="text-align:center;"><strong>Simulated DNC Primary</strong>
+            <br>Total Votes: 652
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Clinton: 40.4% (268)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sanders: 57.9% (384)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#dnc_calc_votes', {
+            labels: ['Clinton', 'Sanders'],
+            series: [268, 384]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 270,
+            total: 652,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="dnc_weight"></div>
+        <div>
+          <p style="text-align:center;"><strong>Weight Simulated DNC Primary</strong>
+            <br>Total Votes: 1,388
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Clinton: 38.3% (532)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Sanders: 61.7% (856)
+          </p>
+        </div>
+        <script>
+        new Chartist.Pie('#dnc_weight', {
+          series: [508, 812]
+        }, {
+          donut: true,
+          donutWidth: 60,
+          startAngle: 270,
+          total: 1320,
+          showLabel: false
+        });
+        </script>
+      </div>
+    </div>
+    <div class="row">
+      <div class="one-third column">
+        <div>
+          <p class="center">
+            <i style="font-size:1.5em;" class="fa fa-caret-up" aria-hidden="true"></i>
+            <br><strong>Controls</strong>
+            <br>Dem. West Virginia
+            <br>Rep. Indiana
+            <br><i style="font-size:1.5em;" class="fa fa-caret-down" aria-hidden="true"></i>
+          </p>
+        </div>
+      </div>
+      <div class="one-third column">
+        <div>
+          <p class="center">
+            <i style="font-size:1.5em;"class="fa fa-caret-up" aria-hidden="true"></i>
+            <br><strong>User's Candidate Preference</strong>
+            <br> Largest Aggregate Sum of Positive Votes
+            <br><i style="font-size:1.5em;" class="fa fa-caret-down" aria-hidden="true"></i>
+          </p>
+        </div>
+      </div>
+      <div class="one-third column">
+        <div>
+          <p class="center">
+            <i style="font-size:1.5em;" class="fa fa-caret-up" aria-hidden="true"></i>
+            <br><strong>User's Candidate Preference</strong>
+            <br> Largest Aggregate Sum Votes
+            <br> Weight: 1, Values: -2 to 2
+            <br><i style="font-size:1.5em;" class="fa fa-caret-down" aria-hidden="true"></i>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="gop_in"></div>
+        <div>
+          <p style="text-align:center;"><strong>GOP IN Primary</strong>
+            <br>Total Votes: 1,080,653
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Trump: 590,460
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cruz: 406,280
+            <br><i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Kasich: 83,913
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#gop_in', {
+            series: [590460, 406280, 83913]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 270,
+            total: 1080653,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="gop_calc_votes"></div>
+        <div>
+          <p style="text-align:center;"><strong>Simulated GOP Primary</strong>
+            <br>Total Votes: 645
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Trump: 59.7% (385)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cruz: 30.4% (196)
+            <br><i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Kasich: 9.9% (64)
+          </p>
+        </div>
+        <script>
+          new Chartist.Pie('#gop_calc_votes', {
+            labels: [ 'Trump', 'Cruz', 'Kasich'],
+            series: [385, 196, 64]
+          }, {
+            donut: true,
+            donutWidth: 60,
+            startAngle: 270,
+            total: 645,
+            showLabel: false
+          });
+        </script>
+      </div>
+      <div class="one-third column">
+        <div class="ct-chart ct-minor-third bottom" id="gop_weight"></div>
+        <div>
+          <p style="text-align:center;"><strong>Weight Simulated GOP Primary</strong>
+            <br>Total Votes: 1,421
+            <br><br><br><i style="font-size: 1em; color:#d70206;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Trump: 58.8% (835)
+            <br><i style="font-size: 1em; color:#f05b4f;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Cruz: 30.1% (428)
+            <br><i style="font-size: 1em; color:#f4c63d;" class="fa fa-circle" aria-hidden="true"></i>&nbsp;Kasich: 11.1% (158)
+          </p>
+        </div>
+        <script>
+        new Chartist.Pie('#gop_weight', {
+          series: [835, 428, 158]
+        }, {
+          donut: true,
+          donutWidth: 60,
+          startAngle: 270,
+          total: 1421,
+          showLabel: false
+        });
+        </script>
+      </div>
+    </div>
+</section>
+
+<!--<section class="about" id="score">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Scorecards</h3>
+      </div>
+    </div>
+    <div class="row bottom">
+      <div class="one-third column">
+        <img src="images/candidates/sanders.jpg" height="250" width="275"/>
+        <h4><strong>Bernie Sanders</strong> <i style="font-size: 1.5em; color:#3cba54; float:right;" class="fa fa-arrow-up" aria-hidden="true"></i></h4>
+      </div>
+      <div class="one-third column">
+        <img src="images/candidates/clinton.jpg" height="250" width="275"/>
+        <h4><strong>Hillary Clinton</strong> <i style="font-size: 1.5em;color:#db3236; float:right;" class="fa fa-arrow-down" aria-hidden="true"></i></h4>
+      </div>
+    </div>-->
+    <!--<div class="row bottom">
+      <div class="one-third column">
+        <h4><strong>Bernie Sanders</strong> <i style="font-size: 1.5em; color:#3cba54; float:right;" class="fa fa-arrow-up" aria-hidden="true"></i></h4>
+        <p>
+          Artisan food truck raw denim swag gluten-free seitan. 8-bit yr knausgaard, irony photo booth tote bag migas marfa. Normcore hella tousled cray, farm-to-table knausgaard PBR&B. Health goth godard tousled, beard artisan hella kale chips thundercats messenger bag salvia. Pickled shabby chic echo park pug hashtag. Leggings echo park pabst, umami banjo sriracha offal letterpress organic synth. Mumblecore gentrify mustache banh mi.
+        </p>
+      </div>
+      <div class="one-third column">
+        <h4><strong>Hillary Clinton</strong> <i style="font-size: 1.5em;color:#db3236; float:right;" class="fa fa-arrow-down" aria-hidden="true"></i></h4>
+        <p>
+          Artisan food truck raw denim swag gluten-free seitan. 8-bit yr knausgaard, irony photo booth tote bag migas marfa. Normcore hella tousled cray, farm-to-table knausgaard PBR&B. Health goth godard tousled, beard artisan hella kale chips thundercats messenger bag salvia. Pickled shabby chic echo park pug hashtag. Leggings echo park pabst, umami banjo sriracha offal letterpress organic synth. Mumblecore gentrify mustache banh mi.
+      </p>
+      </div>
+    </div>-->
+    <!--<div class="row bottom">
+      <div class="one-third column">
+        <img src="images/candidates/trump.jpg" height="250" width="275"/>
+        <h4><strong>Donald Trump</strong> <i style="font-size: 1.5em; color:#f4c20d; float:right;" class="fa fa-trophy" aria-hidden="true"></i></h4>
+      </div>
+      <div class="one-third column">
+        <img src="images/candidates/cruz.jpg" height="250" width="275"/>
+        <h4><strong>Ted Cruz</strong> <i style="font-size: 1.5em; color:#db3236; float:right;" class="fa fa-times-circle-o" aria-hidden="true"></i></h4>
+      </div>
+      <div class="one-third column">
+        <img src="images/candidates/kasich.jpg" height="250" width="275"/>
+        <h4><strong>John Kasich</strong> <i style="font-size: 1.5em; color:#db3236; float:right;" class="fa fa-times-circle-o" aria-hidden="true"></i></h4>
+      </div>
+    </div>-->
+    <!--<div class="row">
+      <div class="one-third column">
+        <h4><strong>Donald Trump</strong> <i style="font-size: 1.5em; color:#f4c20d; float:right;" class="fa fa-trophy" aria-hidden="true"></i></h4>
+        <p>
+          Artisan food truck raw denim swag gluten-free seitan. 8-bit yr knausgaard, irony photo booth tote bag migas marfa. Normcore hella tousled cray, farm-to-table knausgaard PBR&B. Health goth godard tousled, beard artisan hella kale chips thundercats messenger bag salvia. Pickled shabby chic echo park pug hashtag. Leggings echo park pabst, umami banjo sriracha offal letterpress organic synth. Mumblecore gentrify mustache banh mi.
+      </p>
+      </div>
+      <div class="one-third column">
+        <h4><strong>Ted Cruz</strong> <i style="font-size: 1.5em; color:#db3236; float:right;" class="fa fa-times-circle-o" aria-hidden="true"></i></h4>
+        <p>
+          Artisan food truck raw denim swag gluten-free seitan. 8-bit yr knausgaard, irony photo booth tote bag migas marfa. Normcore hella tousled cray, farm-to-table knausgaard PBR&B. Health goth godard tousled, beard artisan hella kale chips thundercats messenger bag salvia. Pickled shabby chic echo park pug hashtag. Leggings echo park pabst, umami banjo sriracha offal letterpress organic synth. Mumblecore gentrify mustache banh mi.
+      </p>
+      </div>
+      <div class="one-third column">
+        <h4><strong>John Kasich</strong> <i style="font-size: 1.5em; color:#db3236; float:right;" class="fa fa-times-circle-o" aria-hidden="true"></i></h4>
+        <p>
+          Artisan food truck raw denim swag gluten-free seitan. 8-bit yr knausgaard, irony photo booth tote bag migas marfa. Normcore hella tousled cray, farm-to-table knausgaard PBR&B. Health goth godard tousled, beard artisan hella kale chips thundercats messenger bag salvia. Pickled shabby chic echo park pug hashtag. Leggings echo park pabst, umami banjo sriracha offal letterpress organic synth. Mumblecore gentrify mustache banh mi.
+      </p>
+      </div>
+    </div>-->
+  <!--</div>--><!--end of .row-->
+<!--</section>-->
+
+<!--CONTACT-->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns">
+        <h3>Contact</h3>
+        <h4 style="text-align:left;">
+          <strong>David Dominguez</strong>
+          <br>domind4@rpi.edu
+        </h4>
+        <h4 style="text-align:left;">
+          <strong>Sam Lagoe</strong>
+          <br>lagoes@rpi.edu
+        </h4>
+      </div>
+    </div><!--end of .row-->
+    <div class="row">
+      <div class="twelve columns">
+        <a href="#tothetop" class="btn block btn-blue">Back To Top</a>
+      </div>
+    </div><!--end of .row-->
+  </div><!--end of .container-->
+</section>
